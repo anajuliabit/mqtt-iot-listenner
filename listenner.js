@@ -1,13 +1,13 @@
 const mqtt = require('mqtt')
 const fs = require('fs');
 
-var stream = {};
+const stream = {};
 
-var client  = mqtt.connect('mqtt://tnt-iot.maratona.dev',{
-  username: 'maratoners',
-  password: 'ndsjknvkdnvjsbvj',
-  port: '30573',
-  host: 'tnt-iot.maratona.dev'
+const client  = mqtt.connect(process.env.MQTT_URL,{
+  username: process.env.USERNAME,
+  password: process.env.PASSWORD,
+  port: process.env.PORT || '30573',
+  host: process.env.HOST
 });
 
 process.on('SIGINT', function() {
